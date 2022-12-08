@@ -1,0 +1,8 @@
+.shops{
+    display: flex;
+    gap: 32px;
+    
+}
+.shops p {
+    margin: 5px;
+}

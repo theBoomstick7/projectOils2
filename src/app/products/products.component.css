@@ -1,0 +1,13 @@
+.product-container {
+    display: grid;
+    place-items: center;
+    
+}
+.special-details{
+    display: flex;
+    justify-content: space-between;
+    font-size: large;
+}
+.product-title{
+    text-align: center;
+}

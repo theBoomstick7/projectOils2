@@ -1,0 +1,9 @@
+.form-container{
+    display: grid;
+    place-items: center;
+    width: 100%;
+}
+textarea{
+    width: 250px;
+    height: 150px;
+}

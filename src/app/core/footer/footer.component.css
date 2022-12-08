@@ -1,0 +1,12 @@
+.footerClass {
+    background-color:#7e3f96;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin:auto ;
+}
+.footerClass p {
+    color: #ffff;
+    text-align: center;
+}

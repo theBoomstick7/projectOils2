@@ -1,0 +1,38 @@
+.navbar {
+    display: flex;
+    color: #ffffff;
+    background-color:#7e3f96 ;
+   
+}
+.internalNav {
+    display: flex;
+    padding-left: 30px;
+    
+}
+.authNav { 
+    display: flex;
+    position: fixed;
+    right: 0;
+    padding-right: 15px;
+}
+.internalNav a {
+    padding: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    align-items:flex-start;
+    font-size:large ;
+}
+.authNav a {
+    padding: 15px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size:large ;
+}
+#logo {
+    display: inline-block;
+    margin: 15px; /* margin: 20px was off */
+    float: left;
+    height: 60px;
+    width: auto; /* correct proportions to specified height */
+    border-radius: 50%; /* makes it a circle */
+  }

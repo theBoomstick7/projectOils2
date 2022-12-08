@@ -1,0 +1,10 @@
+.form-container input{
+    display: grid;
+    place-items: center;
+    padding: 5%;
+    margin: 5%;
+}
+.form-container {
+    display: grid;
+    place-items: center;
+}

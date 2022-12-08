@@ -1,0 +1,9 @@
+.form-container{
+    display: grid;
+    place-items: center;
+    margin-top: 5%;
+}
+.form-container input{
+    
+    margin-top: 2%;
+}

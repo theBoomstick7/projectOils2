@@ -8,6 +8,7 @@ import { ProductsComponent } from './products/products.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ShopsComponent } from './shops/shops.component';
 import { AuthModule } from './auth/auth.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -22,7 +23,8 @@ import { AuthModule } from './auth/auth.module';
     BrowserModule,
     CoreModuleModule,
     AppRoutingModule,
-    AuthModule
+    AuthModule,
+    ReactiveFormsModule,
     
   ],
   providers: [],

@@ -1,26 +1,66 @@
 <div class="form-container">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+       <h2>Register</h2>
+    
+        <div class="input-fields">
+            <h2>Email</h2>
+            <input type="text" name="email" formControlName="email" placeholder="email@domain.com">
+            
+            <div class="errors" *ngIf="registerForm.get('email')?.touched" >
 
-    <h2>Register</h2>
+                <div *ngIf="registerForm.get('email')?.errors?.['required']">
+                    Email is required
+                </div>
+    
+                <div *ngIf="registerForm.get('email')?.errors?.['email']">
+                    Email is invalid
+                </div>
+            </div>
 
-    <div class="input-fields">
-        <h2>Email</h2>
-        <input type="text" name="email" placeholder="email@domain.com">
-    </div>
-    <div class="input-fields">
-        <h2>Username</h2>
-        <input type="text" name="username" placeholder="Username">
-    </div>
-    <div class="input-fields">
-        <h2>Password</h2>
-        <input type="text" name="password" placeholder="******">
-    </div>
-    <div class="input-fields">
-        <h2>Repeat password</h2>
-        <input type="text" name="rePass" placeholder="******">
-    </div>
-    
-    
-    
-    
+        </div>
+        <div class="input-fields">
+            <h2>Username</h2>
+            <input type="text" name="username" formControlName="username" placeholder="Username">
+             
+            <div class="errors" *ngIf="registerForm.get('username')?.touched" >
 
+                <div *ngIf="registerForm.get('username')?.errors?.['required']">
+                    Username is required
+                </div>
+    
+                <div *ngIf="registerForm.get('username')?.errors?.['minlength']">
+                    Username is too short
+                </div>
+            </div>
+        </div>
+        <div class="input-fields">
+            <h2>Password</h2>
+            <input type="text" name="password" formControlName="password" placeholder="******">
+            
+            <div class="errors" *ngIf="registerForm.get('password')?.touched" >
+
+                <div *ngIf="registerForm.get('password')?.errors?.['required']">
+                    Password is required
+                </div>
+    
+                <div *ngIf="registerForm.get('password')?.errors?.['minlength']">
+                    Password is too short
+                </div>
+            </div>
+        </div>
+        <div class="input-fields">
+            <h2>Repeat password</h2>
+            <input type="text" name="rePass" formControlName="rePass" placeholder="******">
+
+            <div class="errors" *ngIf="registerForm.get('rePass')?.touched" >
+
+                <div *ngIf="registerForm.get('rePass')?.errors?.['required']">
+                    Repeated password is required
+                </div>
+            </div>
+
+        </div>
+        <button [disabled]="!registerForm.valid">Register</button>
+    </form>
+    
 </div>

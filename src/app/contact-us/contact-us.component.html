@@ -1,18 +1,58 @@
-<form class="form-container">
+<!-- <form [formGroup]="contactUs" class="form-container"` > -->
+  <form [formGroup]="contactUs" (ngSubmit)="onSubmit()" class="form-container"> 
     <h1>
         Contact Us
     </h1>
     <div class="user-information">
-        <input type="text" name="name" placeholder="Full name">
-        <input type="email" placeholder="Email">
+        <div>
+            <p>Insert name here</p>
+            <input type="text" name="name" formControlName="name" placeholder="Full name">
+            
+            <div class="errors"*ngIf="contactUs.get('name')?.touched" >
+
+                <div *ngIf="contactUs.get('name')?.errors?.['required']">
+                    Name is required
+                </div>
+
+                <div *ngIf="contactUs.get('name')?.errors?.['minlength']">
+                    Name is too short
+                </div>
+            </div>
+        </div>
+        <div>
+            <p>Insert email here</p>
+            <input type="email" formControlName="email" placeholder="Email">
+           
+            <div class="errors" *ngIf="contactUs.get('email')?.touched"> 
+               <div *ngIf="contactUs.get('email')?.errors?.['required']">
+                   Email is required
+               </div>
+               <div *ngIf="contactUs.get('email')?.errors?.['email']">
+                   Email is invalid
+               </div>
+           </div>
+        </div>
+        
     </div>
     <div class="user-query">
         <h2>
             Please type in your question here
         </h2>
-        <textarea rows="4">
+        <textarea rows="4" formControlName="query">
 
         </textarea>
+
+        <div class="errors"*ngIf="contactUs.get('query')?.touched" >
+
+            <div *ngIf="contactUs.get('query')?.errors?.['required']">
+                Query is required
+            </div>
+
+            <div *ngIf="contactUs.get('query')?.errors?.['minlength']">
+                Query is too short
+            </div>
+        </div>
+
     </div>
-    <button>Submit</button>
+    <button [disabled]="!contactUs.valid">Submit</button>
 </form>

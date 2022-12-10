@@ -12,6 +12,7 @@ export class ContactUsComponent {
 
   contactUs = this.fb.group({
     name: [``,[Validators.required, Validators.minLength(5)]],
+    subject: [``, [Validators.required, Validators.maxLength(20)]],
     email: [``,[Validators.email, Validators.required]],
     query: [``, [Validators.required, Validators.minLength(15)]]
   })  

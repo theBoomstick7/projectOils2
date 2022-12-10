@@ -9,7 +9,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ShopsComponent } from './shops/shops.component';
 import { AuthModule } from './auth/auth.module';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http'
 
 
 @NgModule({
@@ -25,6 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     AuthModule,
     ReactiveFormsModule,
+    HttpClientModule
     
   ],
   providers: [],

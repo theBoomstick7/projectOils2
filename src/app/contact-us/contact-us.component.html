@@ -35,6 +35,22 @@
         
     </div>
     <div class="user-query">
+
+        <div>
+            <p>Subject:</p>
+            <input type="text" formControlName="subject" placeholder="Type the subject here">
+            
+            <div class="errors" *ngIf="contactUs.get('subject')?.touched"> 
+                <div *ngIf="contactUs.get('subject')?.errors?.['required']">
+                    Subject is required
+                </div>
+                <div *ngIf="contactUs.get('subject')?.errors?.['maxlength']">
+                    Subject is too long
+                </div>
+            </div>
+        </div>
+
+
         <h2>
             Please type in your question here
         </h2>

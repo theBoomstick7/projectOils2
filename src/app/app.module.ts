@@ -4,12 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModuleModule } from './core/core-module.module';
-import { ProductsComponent } from './products/products.component';
+import { ProductsComponent } from './products/allProducts/products.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ShopsComponent } from './shops/shops.component';
 import { AuthModule } from './auth/auth.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { CreateProductComponent } from './products/create-product/create-product.component'
+import { AppInterceptor,AppInterceptorProvider } from './app.interceptor';
 
 
 @NgModule({
@@ -18,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http'
     ProductsComponent,
     ContactUsComponent,
     ShopsComponent,
+    CreateProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,7 @@ import { HttpClientModule } from '@angular/common/http'
     HttpClientModule
     
   ],
-  providers: [],
+  providers: [AppInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,11 +5,18 @@
         <a routerLink="/">Home</a>
         <a routerLink="/products">Products</a>
         <a routerLink="/shops">Shops</a>
-        <a routerLink="/contact-us">Contact Us</a>
+        <ng-container *ngIf="isLogged">
+            <a routerLink="/contact-us">Contact Us</a>
+        </ng-container>
     </div>
     <div class="authNav">
-        <a routerLink="/auth/login">Login</a>
-        <a routerLink="/auth/register">Register</a>
-        <a routerLink="/auth/logout">Logout</a>
+        <ng-container *ngIf="!isLogged">
+            <a routerLink="/auth/register">Register</a>
+            <a routerLink="/auth/login">Login</a>            
+        </ng-container>
+        <ng-container *ngIf="isLogged">
+            <a routerLink="/create">Create product</a>
+            <a routerLink="/auth/logout">Logout</a>
+        </ng-container>
     </div>
 </nav>

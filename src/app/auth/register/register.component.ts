@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import {FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { passwordValidator } from 'src/app/shared/validator';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-register',
@@ -7,19 +10,31 @@ import {FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+  
+  errors: string | undefined = undefined;
  
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private userService: AuthService, private router: Router) {}
   
   registerForm = this.fb.group({
     email: [``,[Validators.required, Validators.email]],
     username: [``, [Validators.required, Validators.minLength(6)]],
     password: [``, [Validators.required, Validators.minLength(6)]],
-    rePass: [``, [Validators.required,]]
+    rePass: [``, [Validators.required,passwordValidator]]
   })
 
 
-  onSubmit(){
-    console.log(this.registerForm.value)
+  register(): void{
+this.userService.register(this.registerForm.value).subscribe
+    ({
+
+      next: () => this.router.navigate([`/`]),
+      error:(err)=>   {
+        this.errors = err.error.error
+      }
+
+    })
+  
     this.registerForm.reset()
-  }
+    
+  }    
 }

@@ -14,11 +14,16 @@ const mailOptions = {
     subject: `Sending email through node`,
     text: `Hello`
 }
+function sendEmail(mailOptions){
+  transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+}
 
-transporter.sendMail(mailOptions, function(error, info){
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('Email sent: ' + info.response);
-    }
-  });
+module.exports = {
+  sendEmail
+}

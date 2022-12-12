@@ -22,12 +22,13 @@ function createAccessToken(user){
     }
     const accessToken = jwt.sign(payload,SECRET_KEY)
 
-    return{
+     return{
         email: user.email,
         username: user.username,
         accessToken,
-        _id:user._id
-    }
+        _id: user._id
+     }
+ 
 }
 async function register(username,email, password){
     const existingEmail = await User.findOne({email})

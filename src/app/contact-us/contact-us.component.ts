@@ -17,7 +17,7 @@ export class ContactUsComponent {
     query: [``, [Validators.required, Validators.minLength(15)]]
   })  
 
-  onSubmit(){
+  sendEmail(){
     console.log(this.contactUs.value)
     this.contactUs.reset()
   

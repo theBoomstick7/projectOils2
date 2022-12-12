@@ -16,10 +16,10 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    location : {
-        type : ObjectId,
-        ref : `Shop`
-    },
+    // location : {
+    //     type : ObjectId,
+    //     ref : `Shop`
+    // },
     manufacturer : {
         type: ObjectId,
         ref: `User`

@@ -4,7 +4,7 @@ import { mergeMap, Observable, tap } from "rxjs";
 
 @Injectable()
 export class AppInterceptor implements HttpInterceptor{
-    accessToken:string | null = localStorage.getItem(`accessToken`)
+    accessToken:any | [] | null = localStorage.getItem(`accessToken`)
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> 
     {

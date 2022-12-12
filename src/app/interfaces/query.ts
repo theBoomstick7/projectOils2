@@ -1,5 +1,6 @@
 export interface IQuery {
     subject: string,
     query: string,
-    author: any
+    email: string,
+    name: string
 }

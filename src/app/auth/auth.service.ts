@@ -5,7 +5,7 @@ import { tap } from 'rxjs';
 import { IUser } from '../interfaces/user';
 
 
-const AUTH_API_URL = 'http://localhost:3000/auth' // Change this to environment directory later
+const AUTH_API_URL = 'http://localhost:3000' // Change this to environment directory later
 
 
 @Injectable({
@@ -23,13 +23,13 @@ export class AuthService {
     {
       return false
     }
-  }
+  }   
 
   register(data: {}){
     return this.http.post<IUser>(`${AUTH_API_URL}/register`,data).pipe(
       tap((user) => {
         this.user = user
-        localStorage.setItem(`token`, this.user.accessToken)
+        localStorage.setItem(`accessToken`, this.user.accessToken)
       })
     )
   }

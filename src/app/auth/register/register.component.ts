@@ -11,7 +11,8 @@ import { AuthService } from '../auth.service';
 })
 export class RegisterComponent {
   
-  errors: string | undefined = undefined;
+  errors: any;
+  
  
   constructor(private fb: FormBuilder, private userService: AuthService, private router: Router) {}
   
@@ -24,15 +25,15 @@ export class RegisterComponent {
 
 
   register(): void{
-this.userService.register(this.registerForm.value).subscribe
-    ({
+    this.userService.register(this.registerForm.value).subscribe
+      ({
 
-      next: () => this.router.navigate([`/`]),
-      error:(err)=>   {
-        this.errors = err.error.error
-      }
+        next: () => this.router.navigate([`/`]),
+        error:(err)=>   {
+          this.errors = err.error?.error
+        }
 
-    })
+      })
   
     this.registerForm.reset()
     

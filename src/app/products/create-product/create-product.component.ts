@@ -15,7 +15,7 @@ export class CreateProductComponent {
 
   createProductForm = this.fb.group({
     title : [``, [Validators.required, Validators.maxLength(24)]],
-    imageUrl: [``, [ Validators.required, Validators.pattern('^/(https:\/\/)([[:alnum:]]).+$/ig')]],
+    imageUrl: [``, [ Validators.required, Validators.pattern(/^https:\/\/[a-zA-Z\d]\S+$/ig)]],
     description: [``, [Validators.required, Validators.minLength(10)]],
     price : [``, [Validators.required, Validators.min(0.1)]]
   })

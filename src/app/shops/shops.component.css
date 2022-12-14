@@ -1,8 +1,13 @@
 .shops{
-    display: flex;
-    gap: 32px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 85px;
     
 }
 .shops p {
     margin: 5px;
+}
+.shops title{
+    display: block;
 }

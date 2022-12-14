@@ -1,7 +1,13 @@
 .product-container {
-    display: grid;
-    place-items: center;
-    
+    display: flex;
+    gap: 90px;
+}
+.product-container li{
+    list-style: none;
+}
+#productImage{
+    height: 250px;
+    width: 350px;
 }
 .special-details{
     display: flex;

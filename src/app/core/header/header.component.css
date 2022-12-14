@@ -7,11 +7,11 @@
 .internalNav {
     display: flex;
     padding-left: 30px;
-    
+    position:static;
 }
 .authNav { 
     display: flex;
-    position: fixed;
+    position:absolute;
     right: 0;
     padding-right: 15px;
 }
@@ -27,6 +27,7 @@
     text-decoration: none;
     color: #ffffff;
     font-size:large ;
+    align-items:flex-start
 }
 #logo {
     display: inline-block;

@@ -1,6 +1,6 @@
 <div class="product-container">
+    <li *ngFor="let product of products">
     <div class="product-title">
-        <li *ngFor="let product of products">
 
             <h2>
                 {{product.title}}
@@ -11,14 +11,14 @@
                     <p>Description:</p>
                     <p>{{product.description}}</p>
                 </div>
-                <div class="special-details">
+                <div >
                     <p>Location: <span>Mock Location</span></p>
                 </div>
     
             </div>
-        </li>
-
-    </div>
+            
+        </div>
+    </li>
 
 </div>
 

@@ -3,7 +3,14 @@
     place-items: center;
     width: 100%;
 }
+
+.user-query{
+    display: grid;
+    place-items: center;
+}
 textarea{
+    display: grid;
+    place-items: center;
     width: 250px;
     height: 150px;
 }

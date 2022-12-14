@@ -30,6 +30,7 @@ export class AuthService {
       tap((user) => {
         this.user = user
         localStorage.setItem(`accessToken`, this.user.accessToken)
+       // localStorage.setItem(`user`,  JSON.stringify(this.user));
       })
     )
   }
@@ -38,6 +39,7 @@ export class AuthService {
       tap((user) => {
         this.user = user
         localStorage.setItem(`accessToken`, this.user.accessToken)
+        //localStorage.setItem(`user`,  JSON.stringify(this.user));
       })
     )
   }
@@ -45,5 +47,18 @@ export class AuthService {
     this.user = null
     return localStorage.removeItem(`accessToken`)
   }
+  // setLoggedUser(){
+  //   return localStorage.setItem(`user`,  JSON.stringify(this.user));
+  // }
 
+  getUserData()
+  {
+    return this.http.get<IUser>(`${AUTH_API_URL}/userData`).pipe(
+      tap((user) => {
+        if(user){
+          this.user = user
+        }
+      })
+    )
+  }
 }

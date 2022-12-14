@@ -4,10 +4,11 @@ import { mergeMap, Observable, tap } from "rxjs";
 
 @Injectable()
 export class AppInterceptor implements HttpInterceptor{
-    accessToken:any | [] | null = localStorage.getItem(`accessToken`)
+    accessToken:string | null = null
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> 
     {
+        this.accessToken = localStorage.getItem(`accessToken`)
        if(this.accessToken)
        {
         return next.handle(req.clone({ setHeaders: {'X-Authorization' : this.accessToken}}))

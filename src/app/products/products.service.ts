@@ -16,6 +16,6 @@ export class ProductsService {
   constructor(private http : HttpClient, private router : Router) { }
 
   createProduct(data : {}){
-    return this.http.post<IProduct>(`${API_URL}/create`, data)
+    return this.http.post(`${API_URL}/create`, data)
   }
 }

@@ -27,4 +27,13 @@ authController.post(`/login`, async ( req,res) => {
     res.end()
 })
 
+authController.get(`/userData`, (req,res) => {
+    const user = req.user
+    
+    if(user)
+    {
+    res.status(200).json(user) 
+    }
+     
+})
 module.exports = authController

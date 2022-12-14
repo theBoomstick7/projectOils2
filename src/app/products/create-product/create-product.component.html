@@ -37,6 +37,24 @@
 
         </div>
         <div class="input-fields">
+            <h2>Price</h2>
+            <input type="number" name="price" formControlName="price" placeholder="Insert price here">
+
+            <div class="errors" *ngIf="createProductForm.get('price')?.touched">
+
+                <div *ngIf="createProductForm.get('price')?.errors?.['required']">
+                    Price is required!
+                </div>
+
+                <div *ngIf="createProductForm.get('price')?.errors?.['min']">
+                    Price must be higher than 0.1!
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="input-fields">
             <h2>Description</h2>
             <textarea formControlName="description" name="description"></textarea>
             

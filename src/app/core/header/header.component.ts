@@ -9,7 +9,6 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class HeaderComponent {
   
-  constructor(private userService: AuthService, private router: Router) {}
   
   get isLogged(): boolean{
     if(this.userService.user){
@@ -18,6 +17,7 @@ export class HeaderComponent {
       return false
     }
   }
+  constructor(private userService: AuthService, private router: Router) {}
 
   logout(){
     const accessToken = localStorage.getItem(`accessToken`)

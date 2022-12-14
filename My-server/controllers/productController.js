@@ -5,9 +5,13 @@ const productController = require(`express`).Router()
 productController.post(`/create`, async(req,res) => {
     const data = req.body
     console.log(req.user)
+    console.log(req.body)
+
     try {
         const userId = req?.user?._id
         const product = await createProduct(data,userId)
+    console.log(product)
+
         res.status(201).json(product)
     } catch (error) {
         res.status(400).json({error:error.message})

@@ -3,5 +3,5 @@ export interface IUser {
     username: string,
     accessToken: string,
     _id: any,
-    products: [string]
+    products: string[]
 }

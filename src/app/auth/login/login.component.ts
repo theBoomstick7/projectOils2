@@ -1,6 +1,8 @@
 
 import { Component } from '@angular/core';
 import {FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,15 +11,24 @@ import {FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginComponent  {
 
-  constructor(private fb: FormBuilder) {}
+  errors : any
+  
+
+  constructor(private fb : FormBuilder, private userService : AuthService, private router : Router) {}
 
   loginForm = this.fb.group ({
     email: [``, [Validators.required, Validators.email]],
     password: [``, [Validators.required]]
   })
 
-  onSubmit() {
-    console.log(this.loginForm.value)
+  login(): void {
+   this.userService.login(this.loginForm.value).subscribe({
+    next: () => this.router.navigate([`/`]),
+    error:(err) => {
+      this.errors = err.error?.error
+    }
+  })
+
     this.loginForm.reset()
     
   }

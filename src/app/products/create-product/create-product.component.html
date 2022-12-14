@@ -1,1 +1,61 @@
-<p>create-product works!</p>
+<div class="products-container">
+    <form [formGroup]="createProductForm" (ngSubmit)="createProduct()">
+        <h2>
+            Create Product
+        </h2>
+
+        <div class="input-fields">
+            <h2>Title</h2>
+            <input type="text" name="title" formControlName="title" placeholder="Insert title here">
+
+            <div class="errors" *ngIf="createProductForm.get('title')?.touched">
+
+                <div *ngIf="createProductForm.get('title')?.errors?.['required']">
+                    Title is required!
+                </div>
+
+                <div *ngIf="createProductForm.get('title')?.errors?.['maxlength']">
+                    Title is too long!
+                </div>
+
+            </div>
+
+        </div>
+        <div class="input-fields">
+            <h2>Image URL</h2>
+            <input type="text" name="title" formControlName="imageUrl" placeholder="Insert image here">
+            
+            <div class="errors" *ngIf="createProductForm.get('imageUrl')?.touched">
+
+                <div *ngIf="createProductForm.get('imageUrl')?.errors?.['required']">
+                    Image URL is required!
+                </div>
+           <!-- Add URL Validation -->
+                
+            </div>
+
+
+        </div>
+        <div class="input-fields">
+            <h2>Description</h2>
+            <textarea formControlName="description" name="description"></textarea>
+            
+            <div class="errors" *ngIf="createProductForm.get('description')?.touched">
+
+                <div *ngIf="createProductForm.get('description')?.errors?.['required']">
+                    Description is required!
+                </div>
+
+                <div *ngIf="createProductForm.get('description')?.errors?.['minlength']">
+                    Description is too long!
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <button [disabled]="!createProductForm.valid">Create</button>
+    </form>
+
+</div>

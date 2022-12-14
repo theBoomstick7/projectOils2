@@ -3,18 +3,11 @@ const {getAll,createProduct} = require(`../services/productService`)
 const productController = require(`express`).Router()
 
 productController.post(`/create`, async(req,res) => {
-    const {title, description,imageUrl} = req.body
-    const {manufacturer} = req.user 
-    
-    const data = {
-        title,
-        manufacturer,
-        description,
-        imageUrl
-    }
-
+    const data = req.body
+    console.log(req.user)
     try {
-        const product = await createProduct(data)
+        const userId = req?.user?._id
+        const product = await createProduct(data,userId)
         res.status(201).json(product)
     } catch (error) {
         res.status(400).json({error:error.message})

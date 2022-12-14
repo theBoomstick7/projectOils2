@@ -37,13 +37,13 @@ export class AuthService {
     return this.http.post<IUser>(`${AUTH_API_URL}/login`, data). pipe(
       tap((user) => {
         this.user = user
-        localStorage.setItem(`token`, this.user.accessToken)
+        localStorage.setItem(`accessToken`, this.user.accessToken)
       })
     )
   }
   logout(){
     this.user = null
-    return localStorage.removeItem(`token`)
+    return localStorage.removeItem(`accessToken`)
   }
 
 }

@@ -19,4 +19,13 @@ export class HeaderComponent {
     }
   }
 
+  logout(){
+    const accessToken = localStorage.getItem(`accessToken`)
+
+    if(accessToken){
+      this.userService.logout()
+      this.router.navigate([`/`])
+    }
+  }
+
 }

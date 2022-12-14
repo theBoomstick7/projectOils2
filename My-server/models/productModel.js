@@ -23,7 +23,11 @@ const productSchema = new mongoose.Schema({
     manufacturer : {
         type: ObjectId,
         ref: `User`
-    }
+    },
+    price : {
+        type: Number,
+        required: true
+    },
 })
 
 const Product = model(`Products`, productSchema)

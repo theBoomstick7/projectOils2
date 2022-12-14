@@ -18,4 +18,7 @@ export class ProductsService {
   createProduct(data : {}){
     return this.http.post(`${API_URL}/create`, data)
   }
+  getAllProducts(){
+    return this.http.get<IProduct[]>(`${API_URL}/products`)
+  }
 }

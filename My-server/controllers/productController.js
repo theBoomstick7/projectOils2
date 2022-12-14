@@ -4,8 +4,7 @@ const productController = require(`express`).Router()
 
 productController.post(`/create`, async(req,res) => {
     const data = req.body
-    console.log(req.user)
-    console.log(req.body)
+
 
     try {
         const userId = req?.user?._id
@@ -21,6 +20,7 @@ productController.post(`/create`, async(req,res) => {
 })
 productController.get(`/products` , async (req,res) => {
     const products = await getAll()
+    console.log(products)
     res.status(200).json(products)
 })
 module.exports = productController

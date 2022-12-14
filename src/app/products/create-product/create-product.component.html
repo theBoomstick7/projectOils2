@@ -30,7 +30,11 @@
                 <div *ngIf="createProductForm.get('imageUrl')?.errors?.['required']">
                     Image URL is required!
                 </div>
+                <div *ngIf="createProductForm.get('imageUrl')?.errors?.['pattern']">
+                    Image URL is invalid!
+                </div>
            <!-- Add URL Validation -->
+           {{createProductForm.get('imageUrl')?.errors?.['pattern'] | json}}
                 
             </div>
 

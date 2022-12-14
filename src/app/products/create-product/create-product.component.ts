@@ -9,12 +9,13 @@ import { ProductsService } from '../products.service'
 })
 export class CreateProductComponent {
 
+  urlPattern = /(https:\/\/)([[:alnum:]]).+/ig
   errors: string | undefined = undefined;
   constructor(private fb : FormBuilder, private productService: ProductsService, private router : Router){}
 
   createProductForm = this.fb.group({
-    title : [``, [Validators.required, Validators.maxLength(12)]],
-    imageUrl: [``, [ Validators.required]],
+    title : [``, [Validators.required, Validators.maxLength(24)]],
+    imageUrl: [``, [ Validators.required, Validators.pattern('^/(https:\/\/)([[:alnum:]]).+$/ig')]],
     description: [``, [Validators.required, Validators.minLength(10)]],
     price : [``, [Validators.required, Validators.min(0.1)]]
   })

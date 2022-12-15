@@ -5,7 +5,7 @@ const emailController = require(`express`).Router()
 emailController.post(`/contact-us`, (req,res) => {
     console.log(`request came`)
     let data = req.body
-    console.log(data)
+   
 
     try {
         sendEmail(data,callback => {

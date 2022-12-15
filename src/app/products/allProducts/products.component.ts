@@ -8,16 +8,20 @@ import { ProductsService } from '../products.service';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent {
-  products: IProduct[] | undefined;
-
+  products: IProduct[] | undefined 
+  noProducts: boolean = false
   constructor(private productService: ProductsService){
     this.getAllProducts()
   }
 
   getAllProducts(){
+    this.products=undefined
     this.productService.getAllProducts().subscribe({
       next: (products) =>{
         this.products = products
+        if(products.length == 0){
+          this.noProducts = true
+        }
         
       }
     })

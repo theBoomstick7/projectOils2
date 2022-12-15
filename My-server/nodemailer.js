@@ -41,7 +41,7 @@ async function sendEmail(data,callback){
   <div>${ data.query}</div>
   `
 }
-console.log(mailOptions)
+
 let info = await transporter.sendMail(mailOptions)
 
 callback(info)

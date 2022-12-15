@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ContactUsService } from './contact-us.service';
 
 @Component({
   selector: 'app-contact-us',
@@ -7,8 +9,8 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./contact-us.component.css']
 })
 export class ContactUsComponent {
-
-  constructor(private fb: FormBuilder){}
+  errors: any;
+  constructor(private fb: FormBuilder,private emailService: ContactUsService, private router: Router ){}
 
   contactUs = this.fb.group({
     name: [``,[Validators.required, Validators.minLength(5)]],
@@ -18,7 +20,22 @@ export class ContactUsComponent {
   })  
 
   sendEmail(){
-    console.log(this.contactUs.value)
+  let user = {
+    name : this.contactUs.get(`name`)?.value,
+    email : this.contactUs.get(`email`)?.value,
+    subject : this.contactUs.get(`subject`)?.value,
+    query:  this.contactUs.get(`query`)?.value,
+  } 
+  this.emailService.sendEmail(user).subscribe({
+    
+
+      next: () => this.router.navigate([`/`]),
+      error:(err)=>   {
+        this.errors = err.error?.error
+      }
+
+    })
+  
     this.contactUs.reset()
   
   }

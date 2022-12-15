@@ -1,27 +1,40 @@
 const nodemailer = require(`nodemailer`)
 
-const transporter = nodemailer.createTransport({
+// const transporter = nodemailer.createTransport({
+//     host: "smtp.gmail.com",
+//     port:587,
+//     service: `gmail`,
+//     auth:{
+//         user : `essentialOilsNodeMailer`,
+//         pass: `Nodemailer`
+//     }
+// })
+
+// const mailOptions = {
+//     from: `essentialOilsNodeMailer`,
+//     to: `aleksandur.vartolomeev@gmail.com`,
+//     subject: `Sending email through node`,
+//     text: `Hello`
+// }
+async function sendEmail(user,callback){
+  const transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port:587,
     service: `gmail`,
     auth:{
-        user : `essentialOilsNodeMailer`,
-        pass: `Nodemailer`
+        user : `essentialoilsnodemailer`,
+        pass: `nrpvrhihhowxerst`
     }
 })
-
 const mailOptions = {
-    from: `essentialOilsNodeMailer`,
-    to: `aleksandur.vartolomeev@gmail.com`,
-    subject: `Sending email through node`,
-    text: `Hello`
+  from: user.email,
+  to: `essentialoilsnodemailer@gmail.com`,
+  subject: user.subject,
+  text: user.query
 }
-function sendEmail(mailOptions){
-  transporter.sendMail(mailOptions, function(error, info){
-      if (error) {
-        console.log(error);
-      } else {
-        console.log('Email sent: ' + info.response);
-      }
-    });
+console.log(mailOptions)
+ let info = await transporter.sendMail(mailOptions)
+callback(info)
 }
 
 module.exports = {

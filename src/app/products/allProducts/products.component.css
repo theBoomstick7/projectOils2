@@ -1,6 +1,7 @@
 .product-container {
     display: flex;
     gap: 90px;
+    flex-wrap:wrap;
 }
 .product-container li{
     list-style: none;

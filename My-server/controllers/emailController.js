@@ -1,17 +1,17 @@
-const {sendEmail, transporter} = require(`../nodemailer`)
+const {sendEmail} = require(`../nodemailer`)
 
 const emailController = require(`express`).Router()
 
 emailController.post(`/contact-us`, (req,res) => {
-    const mailOptions = {
-        from: transporter,
-        to: req.body.email,
-        subject : req.body.subject,
-        text : req.body.query
-    }
+    console.log(`request came`)
+    let user = req.body
+    console.log(user)
+
     try {
-        const email = sendEmail(mailOptions)
-        res.status(200).json(email)
+        sendEmail(user,callback => {
+            console.log(`Email sent`)
+           // res.send(callback)
+        })
     } catch (error) {
         res.status(400).json({error:error.message})
     }

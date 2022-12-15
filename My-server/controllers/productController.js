@@ -9,7 +9,6 @@ productController.post(`/create`, async(req,res) => {
     try {
         const userId = req?.user?._id
         const product = await createProduct(data,userId)
-    console.log(product)
 
         res.status(201).json(product)
     } catch (error) {
@@ -20,7 +19,7 @@ productController.post(`/create`, async(req,res) => {
 })
 productController.get(`/products` , async (req,res) => {
     const products = await getAll()
-    console.log(products)
+   
     res.status(200).json(products)
 })
 module.exports = productController

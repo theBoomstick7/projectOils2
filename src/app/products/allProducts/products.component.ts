@@ -18,7 +18,7 @@ export class ProductsComponent {
     this.productService.getAllProducts().subscribe({
       next: (products) =>{
         this.products = products
-        console.log(products)
+        
       }
     })
   }

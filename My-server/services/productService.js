@@ -1,5 +1,4 @@
 const Product = require(`../models/productModel`)
-const Shop = require("../models/shop")
 
 async function getAll(){
     return Product.find({})
@@ -16,8 +15,12 @@ async function createProduct(product,id){
 async function getLast3(){
   return Product.find({}).sort({_id: -1}).limit(3)
 }
+async function getProductsByManufacturer(_id){
+  return Product.find({manufacturer: _id})
+}
 
 module.exports = {
     getAll,
-    createProduct
+    createProduct,
+    getProductsByManufacturer
 }

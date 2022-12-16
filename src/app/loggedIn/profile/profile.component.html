@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="profile">
+        <h3>User Info:</h3>
+        <div class="flex">
+            <p>Username: </p>
+            <p>{{user?.username}}</p>
+        </div>
+        <div class="flex">
+            <p>Email: </p>
+            <p>{{user?.email}}</p>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="profile" >
+        <h3>User products:</h3>
+        <div class="border" *ngFor=" let product of products">
+            <div class="flex">
+                <p>Title of product: </p>
+                <p>{{product?.title}}</p>
+            </div>
+            <div class="flex">
+                <p>Price: </p>
+                <p>{{product?.price}}</p>
+            </div>
+        </div>
+        <div *ngIf="isEmpty">
+            <h2>No products found...</h2>
+            <a routerLink="/create">Create product</a>
+        </div>
+    </div>
+</div>

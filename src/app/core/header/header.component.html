@@ -15,6 +15,7 @@
             <a routerLink="/login">Login</a>            
         </ng-container>
         <ng-container *ngIf="isLogged">
+            <a routerLink="/profile">Your profile</a>
             <a routerLink="/create">Create product</a>
             <a (click)="logout()">Logout</a>
         </ng-container>

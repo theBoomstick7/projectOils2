@@ -36,4 +36,13 @@ authController.get(`/userData`, (req,res) => {
     }
      
 })
+authController.get(`/profile`, async (req,res) => {
+    const user = req.user
+    if(user)
+    {
+    res.status(200).json(user)
+
+    }
+     
+})
 module.exports = authController

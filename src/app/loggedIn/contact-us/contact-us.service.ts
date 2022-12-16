@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { IQuery } from '../interfaces/query';
+import { IQuery } from '../../interfaces/query';
 
 const API_CONTACT_US_EMAIL = `http://localhost:3000/contact-us`
 

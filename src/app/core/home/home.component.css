@@ -7,4 +7,22 @@
     font-size: x-large;
 }
 
-  
+.logged a {
+    color: white;
+    text-decoration: none;
+    background-color: #7e3f96;
+    border: none;
+    border-radius: 0.3em;
+    padding: 0.5em 5.2em;
+    margin: 1em;
+    place-items: center;
+}
+.logged li {
+    list-style: none;
+}
+.logged ul {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0;
+    margin: 1em;
+}

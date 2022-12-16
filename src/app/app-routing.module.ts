@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ContactUsComponent } from './contact-us/contact-us.component';
+import { ContactUsComponent } from './loggedIn/contact-us/contact-us.component';
 import { HomeComponent } from './core/home/home.component';
 import { ProductsComponent } from './products/allProducts/products.component';
 import { CreateProductComponent } from './products/create-product/create-product.component';
 import { ShopsComponent } from './shops/shops.component';
+import { ProfileComponent } from './loggedIn/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: `create`,
     component:CreateProductComponent
+  },
+  {
+    path: `profile`,
+    component:ProfileComponent
   }
 
 ];

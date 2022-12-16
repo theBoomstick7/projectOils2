@@ -4,7 +4,6 @@ import { ContactUsComponent } from './loggedIn/contact-us/contact-us.component';
 import { HomeComponent } from './core/home/home.component';
 import { ProductsComponent } from './products/allProducts/products.component';
 import { CreateProductComponent } from './products/create-product/create-product.component';
-import { ShopsComponent } from './shops/shops.component';
 import { ProfileComponent } from './loggedIn/profile/profile.component';
 
 const routes: Routes = [
@@ -16,10 +15,6 @@ const routes: Routes = [
   {
     path: `products`,
     component: ProductsComponent
-  },
-  {
-    path: `shops`,
-    component: ShopsComponent
   },
   {
     path: `contact-us`,

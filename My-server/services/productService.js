@@ -18,9 +18,12 @@ async function getLast3(){
 async function getProductsByManufacturer(_id){
   return Product.find({manufacturer: _id})
 }
-
+async function deleteProduct(_id){
+  return Product.findByIdAndDelete(_id)
+}
 module.exports = {
     getAll,
     createProduct,
-    getProductsByManufacturer
+    getProductsByManufacturer,
+    deleteProduct
 }

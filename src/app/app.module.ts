@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { CoreModuleModule } from './core/core-module.module';
 import { ProductsComponent } from './products/allProducts/products.component';
 import { ContactUsComponent } from './loggedIn/contact-us/contact-us.component';
-import { ShopsComponent } from './shops/shops.component';
 import { AuthModule } from './auth/auth.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,7 +19,6 @@ import { ProfileComponent } from './loggedIn/profile/profile.component';
     AppComponent,
     ProductsComponent,
     ContactUsComponent,
-    ShopsComponent,
     CreateProductComponent,
     ProfileComponent,
   ],

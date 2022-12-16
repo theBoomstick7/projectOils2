@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { IProduct } from 'src/app/interfaces/products';
 import { IUser } from 'src/app/interfaces/user';
 
 const API_URL = `http://localhost:3000`
@@ -15,6 +14,9 @@ export class ProfileService {
 
 getUserDetails(){
   return this.http.get<IUser>(`${API_URL}/profile`)
+}
+deleteProduct(id:string){
+  return this.http.get(`${API_URL}/profile/:${id}`,)
 }
 
 }

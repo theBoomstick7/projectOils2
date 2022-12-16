@@ -15,6 +15,7 @@ const contactSchema = new Schema({
     name: {
         type: String
     }
+    
 })
 
 const Query = model(`Query`, contactSchema)

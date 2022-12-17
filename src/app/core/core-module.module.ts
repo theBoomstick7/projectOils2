@@ -4,6 +4,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { ErrorComponent } from './authError/error.component';
+import { GeneralErrorComponent } from './general-error/general-error.component';
 
 
 
@@ -12,6 +14,8 @@ import { HomeComponent } from './home/home.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
+    ErrorComponent,
+    GeneralErrorComponent,
   ],
   imports: [
     CommonModule,

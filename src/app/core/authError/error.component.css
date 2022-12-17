@@ -1,4 +1,4 @@
-.products-container {
+.error {
     width: 100%;
     max-width: 500px;
     margin: 2em auto 1rem;
@@ -11,8 +11,7 @@
     box-shadow: 0 0 1em 0 #000;
     text-align: center;
 }
-
-.products-container button {
+.error a {
     color: white;
     text-decoration: none;
     background-color: #7e3f96;

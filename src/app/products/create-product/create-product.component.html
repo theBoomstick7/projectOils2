@@ -1,11 +1,11 @@
 <div class="products-container">
     <form [formGroup]="createProductForm" (ngSubmit)="createProduct()">
-        <h2>
+        <h3>
             Create Product
-        </h2>
+        </h3>
 
         <div class="input-fields">
-            <h2>Title</h2>
+            <h3>Title</h3>
             <input type="text" name="title" formControlName="title" placeholder="Insert title here">
 
             <div class="errors" *ngIf="createProductForm.get('title')?.touched">
@@ -22,7 +22,7 @@
 
         </div>
         <div class="input-fields">
-            <h2>Image URL</h2>
+            <h3>Image URL</h3>
             <input type="text" name="title" formControlName="imageUrl" placeholder="Insert image here">
             
             <div class="errors" *ngIf="createProductForm.get('imageUrl')?.touched">
@@ -41,7 +41,7 @@
 
         </div>
         <div class="input-fields">
-            <h2>Price</h2>
+            <h3>Price</h3>
             <input type="number" name="price" formControlName="price" placeholder="Insert price here">
 
             <div class="errors" *ngIf="createProductForm.get('price')?.touched">
@@ -59,8 +59,8 @@
         </div>
 
         <div class="input-fields">
-            <h2>Description</h2>
-            <textarea formControlName="description" name="description"></textarea>
+            <h3>Description</h3>
+            <textarea formControlName="description" rows="8" cols="48" name="description"></textarea>
             
             <div class="errors" *ngIf="createProductForm.get('description')?.touched">
 

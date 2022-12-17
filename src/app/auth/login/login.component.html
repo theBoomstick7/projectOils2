@@ -1,10 +1,10 @@
 <div class="form-container">
     <form [formGroup]="loginForm" (ngSubmit)="login()" class="login">
 
-        <h2>Login Form</h2>
+        <h3>Login</h3>
 
         <div>
-            <p>Email</p>
+            <h3>Email</h3>
             <input name="email" id="email" formControlName="email" placeholder="email@domain.com">
 
             <div class="errors"*ngIf="loginForm.get('email')?.touched" >
@@ -19,7 +19,7 @@
             </div>
         </div>
         <div>
-            <p>Password</p>
+            <h3>Password</h3>
             <input type="password" name="password" formControlName="password" placeholder="*******">
             
             <div class="errors"*ngIf="loginForm.get('password')?.touched" >

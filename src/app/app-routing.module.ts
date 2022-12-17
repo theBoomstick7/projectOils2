@@ -5,6 +5,9 @@ import { HomeComponent } from './core/home/home.component';
 import { ProductsComponent } from './products/allProducts/products.component';
 import { CreateProductComponent } from './products/create-product/create-product.component';
 import { ProfileComponent } from './loggedIn/profile/profile.component';
+import { authGuard } from './core/guards/authGuard';
+import { ErrorComponent } from './core/authError/error.component';
+import { GeneralErrorComponent } from './core/general-error/general-error.component';
 
 const routes: Routes = [
   {
@@ -14,21 +17,38 @@ const routes: Routes = [
   },
   {
     path: `products`,
-    component: ProductsComponent
+    component: ProductsComponent,
+    
   },
   {
     path: `contact-us`,
-    component: ContactUsComponent
+    component: ContactUsComponent,
+    canActivate: [authGuard],
+    data: {
+      'mustBeLogged' : true
+    }
   },
   {
     path: `create`,
-    component:CreateProductComponent
+    component:CreateProductComponent,
+    canActivate: [authGuard],
+    data: {
+      'mustBeLogged' : true
+    }
   },
   {
     path: `profile`,
-    component:ProfileComponent
-  }
-
+    component:ProfileComponent,
+    canActivate: [authGuard],
+    data: {
+      'mustBeLogged' : true
+    }
+  },
+  {
+    path: `error`,
+    component: ErrorComponent
+  },
+ 
 ];
 
 @NgModule({

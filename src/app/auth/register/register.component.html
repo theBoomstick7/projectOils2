@@ -31,6 +31,9 @@
                 <div *ngIf="registerForm.get('username')?.errors?.['minlength']">
                     Username is too short
                 </div>
+                <div *ngIf="registerForm.get('username')?.errors?.['maxlength']">
+                    Username is too long
+                </div>
             </div>
         </div>
         <div class="input-fields">
@@ -60,6 +63,9 @@
             </div>
 
         </div>
+        <ng-container *ngIf="errors">
+            <p>{{errors}}</p>
+        </ng-container>
         <button [disabled]="!registerForm.valid">Register</button>
     </form>
     

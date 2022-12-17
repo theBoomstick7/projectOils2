@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 import {FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { errorHandler } from 'src/app/shared/errors';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -25,7 +26,7 @@ export class LoginComponent  {
    this.userService.login(this.loginForm.value).subscribe({
     next: () => this.router.navigate([`/`]),
     error:(err) => {
-      this.errors = err.error?.error
+      this.errors = errorHandler(err.error?.error) 
     }
   })
 

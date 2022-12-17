@@ -17,20 +17,23 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) { }
 
   get isLogged(): boolean {
-    if(this.user){
+    if(this.user)
+    {
       return true
-    }else 
+    }
+    else 
     {
       return false
     }
   }   
 
-  register(data: {}){
+  register(data: {})
+  {
     return this.http.post<IUser>(`${AUTH_API_URL}/register`,data).pipe(
       tap((user) => {
         this.user = user
         localStorage.setItem(`accessToken`, this.user.accessToken)
-       // localStorage.setItem(`user`,  JSON.stringify(this.user));
+      
       })
     )
   }
@@ -39,17 +42,16 @@ export class AuthService {
       tap((user) => {
         this.user = user
         localStorage.setItem(`accessToken`, this.user.accessToken)
-        //localStorage.setItem(`user`,  JSON.stringify(this.user));
       })
     )
   }
-  logout(){
+
+  logout()
+  {
     this.user = null
     return localStorage.removeItem(`accessToken`)
   }
-  // setLoggedUser(){
-  //   return localStorage.setItem(`user`,  JSON.stringify(this.user));
-  // }
+
 
   getUserData()
   {

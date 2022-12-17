@@ -38,7 +38,7 @@ export class ProfileComponent implements OnInit {
    
     this.profileService.deleteProduct(_id).subscribe({
       next: () => 
-        this.router.navigate([`/products`]),
+       window.location.reload(),
       error: (error) => {
         this.errors = error.error?.error
       }

@@ -27,6 +27,7 @@ productController.get(`/profile/:id`, async(req,res) => {
     try {
         const id = req.params.id.toString().slice(1)
         const response =  await deleteProduct(id)
+        res.status(200).send(response)
     } catch (error) {
         res.status(500).send(error)
     }

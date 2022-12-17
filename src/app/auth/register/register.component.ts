@@ -13,6 +13,7 @@ import { AuthService } from '../auth.service';
 export class RegisterComponent {
   
   errors: any;
+invalidPasswords: any;
   
  
   constructor(private fb: FormBuilder, private userService: AuthService, private router: Router) {}

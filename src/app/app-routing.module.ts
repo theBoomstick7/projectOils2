@@ -6,8 +6,7 @@ import { ProductsComponent } from './products/allProducts/products.component';
 import { CreateProductComponent } from './products/create-product/create-product.component';
 import { ProfileComponent } from './loggedIn/profile/profile.component';
 import { authGuard } from './core/guards/authGuard';
-import { ErrorComponent } from './core/authError/error.component';
-import { GeneralErrorComponent } from './core/general-error/general-error.component';
+
 
 const routes: Routes = [
   {
@@ -43,11 +42,8 @@ const routes: Routes = [
     data: {
       'mustBeLogged' : true
     }
-  },
-  {
-    path: `error`,
-    component: ErrorComponent
-  },
+  }
+  
  
 ];
 

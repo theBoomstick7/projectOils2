@@ -1,6 +1,8 @@
 import { RouterModule, Routes } from "@angular/router";
+import { ErrorComponent } from "../core/authError/error.component";
 import { GeneralErrorComponent } from "../core/general-error/general-error.component";
 import { authGuard } from "../core/guards/authGuard";
+
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
 
@@ -21,10 +23,14 @@ const routes: Routes = [
         'mustBeLogged' : false
         }
     },
-     {
+    {
+        path: `error`,
+        component: ErrorComponent
+      },
+    {
         path: '**',
         component: GeneralErrorComponent
-      }
+    }
     
 ]
 
